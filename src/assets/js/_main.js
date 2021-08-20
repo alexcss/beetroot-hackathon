@@ -35,6 +35,7 @@ export class Main {
       map: 'world',
       regionsSelectable: true,
       showTooltip: true,
+      zoomOnScroll: false,
       onRegionSelected: function (index, isSelected, selectedRegions) {
         map.clearSelectedRegions();
         console.log(index, isSelected, selectedRegions);
