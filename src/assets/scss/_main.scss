@@ -37,6 +37,7 @@ body {
   background-color: var(--body-background);
   color: var(--body-font-color);
   font-weight: $global-weight-light;
+  transition: background-color .1s ease-in, color .1s ease-in;
 }
 ol, ul {
   li {
