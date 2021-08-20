@@ -79,7 +79,7 @@ export class Main {
       colors[country['countryCode']] = country['borderStatus'];
     })
 
-    console.log(data[0]);
+    // console.log(data[0]);
 
 
     const map = new jsVectorMap({
