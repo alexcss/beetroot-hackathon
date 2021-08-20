@@ -17,6 +17,7 @@ export class Main {
     //define variables
     this.data = {};
     this.infoWindow;
+    this.map;
 
     $(document).foundation();
 
@@ -39,7 +40,7 @@ export class Main {
   }
 
   initInfoWindow() {
-
+    const _self = this;
     this.infoWindow = new Vue({
       delimiters: ['${', '}'],
       el: '#info',
@@ -50,6 +51,7 @@ export class Main {
       methods: {
         close(){
           this.closed = true;
+          _self.map.clearSelectedRegions();
         }
       },
       mounted() {
@@ -77,16 +79,16 @@ export class Main {
 
     console.log(data[0]);
 
-    const map = new jsVectorMap({
+    this.map = new jsVectorMap({
       selector: '#map',
       map: 'world',
       regionsSelectable: true,
       showTooltip: true,
       zoomOnScroll: false,
       onRegionSelected: function (index, isSelected, selectedRegions) {
-        map.clearSelectedRegions();
+        _self.map.clearSelectedRegions();
 
-        map.setSelected('regions', [index]);
+        _self.map.setSelected('regions', [index]);
 
         _self.setInfoData(index);
 
@@ -99,6 +101,12 @@ export class Main {
         window.addEventListener('resize', () => {
           map.updateSize()
         })
+      },
+      // -------- Region and label style --------
+      regionStyle: {
+        selected: {
+          fill: "#2d98ef"
+        }
       },
       // -------- Series --------
       series: {
