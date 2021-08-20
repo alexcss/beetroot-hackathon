@@ -5278,6 +5278,11 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
+jsvectormap@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/jsvectormap/-/jsvectormap-1.3.2.tgz#11b52944f948abe64a40d53d4e4a0e709e920bc9"
+  integrity sha512-OL0wei3SCJ73xdk8QzDh6QBwix+nvuS9es6G9n3FpRfknsXPmvbiUe439gQ6AI0tipF1PyQ2X1V3jabKvBh80A==
+
 junk@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/junk/-/junk-3.1.0.tgz#31499098d902b7e98c5d9b9c80f43457a88abfa1"

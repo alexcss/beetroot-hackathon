@@ -56,7 +56,7 @@
 // @include foundation-float-classes;
 //@include foundation-flex-classes;
 
-//@include foundation-prototype-classes;
+@include foundation-prototype-classes;
 
 //!!!!!!!!!!!!!!!!!!!!! Enable margin/padidng utilits https://get.foundation/sites/docs/prototyping-utilities.html#margin-helpers
 //@include foundation-prototype-spacing;
@@ -83,6 +83,7 @@
 // Components
 @import "components/buttons";
 @import "components/links";
+@import "components/jqvmap";
 
 // Templates
 @import "templates/front";
