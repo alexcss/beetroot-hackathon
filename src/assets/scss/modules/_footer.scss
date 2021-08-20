@@ -1,4 +1,65 @@
 .zg-footer {
   margin-top: 120px;
-  color: rgba($dark-blue, 0.3);
+  padding: 23px 0;
+  color: var(--body-font-color);
+  border-top: 1px solid #E4E4E4;
+}
+
+.zg-copyright {
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.zg-made-by {
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-align: center;
+  margin: 0;
+  color: var(--body-font-color);
+
+  > a {
+    position: relative;
+    display: inline-block;
+    color: var(--body-font-color);
+
+    &:hover,
+    &:focus {
+      color: var(--primary-color);
+    }
+
+    &::after {
+      display: inline-block;
+      content: "";
+      background-color: var(--primary-color);
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.zg-socials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+
+  > li > a {
+    display: inline-block;
+    color: var(--body-font-color);
+    margin-left: 24px;
+
+    &:hover,
+    &:focus {
+      color: var(--primary-color);
+    }
+  }
 }

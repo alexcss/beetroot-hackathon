@@ -2,16 +2,10 @@
 
 {% block content %}
     <main>
-        <div class="grid-container">
+        <section class="zg-hero" style="background-image: url({{ featured_image }})">
             <h1 class="zg-title-dot zg-main-title">{{ __('TRAVEL SAFELY', 'zg') }}</h1>
-            <div class="grid-x">
-                <div class="cell small-12 medium-6 large-4">
-                    <a class="zg-button" href="#map">
-                        <span>{{ __('See Map', 'zg') }}</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+            <p>Interactive world map</p>
+        </section>
         <section class="zg-map-wrap position-relative">
             <div id="map" style="width: 100%; height: 80vh;"></div>
             <div class="zg-country-info" id="info" >

@@ -19,6 +19,8 @@ export class Main {
     $(document).foundation();
 
     this.getData();
+    this.switchThemeColor();
+    this.search();
     this.initInfoWindow();
   }
 
@@ -135,6 +137,20 @@ export class Main {
   }
 
   switchThemeColor() {
+    let buttonSwitcher = document.querySelector('[data-toggle-theme-color]');
+    buttonSwitcher.addEventListener('click', () => {
+      document.body.classList.toggle('switch-theme');
+      if(document.cookie.indexOf('zg-switch-theme-color') == -1){
+        document.cookie='zg-switch-theme-color=1; path=/';
+      } else {
+        document.cookie = 'zg-switch-theme-color=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+      }
+    })
+  }
 
+  search() {
+    let searchInput = document.querySelector('[data-search-input]');
+    searchInput.addEventListener('keyup', () => {
+    });
   }
 }

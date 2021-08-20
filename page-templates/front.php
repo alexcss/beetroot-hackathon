@@ -15,17 +15,13 @@ $post = new TimberPost();
 
 $context         = Timber::get_context();
 $context['post'] = $post;
-
+if (isset($_COOKIE['zg-switch-theme-color']) && !empty($_COOKIE['zg-switch-theme-color'])) {
+	$context['theme_color'] = 'switch-theme';
+}
 $data = array(
-//	'intro' => get_field('intro'),
-//	'contact' => get_field('contacts'),
-//	'cases' => $casesList,
-//	'latest' => $latest,
+	'featured_image' => get_the_post_thumbnail_url(),
 );
 
 $context = array_merge( $context, $data );
 
 Timber::render( 'templates/front.twig', $context );
-function get() {
-	echo 1;
-}

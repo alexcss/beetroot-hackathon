@@ -1,0 +1,47 @@
+<ul class="zg-socials">
+    {% if footer.instagram %}
+        <li>
+            <a href="{{ footer.instagram }}" target="_blank" rel="noopener">
+                <svg width="24" height="24">
+                    <use xlink:href="#instagram"/>
+                </svg>
+            </a>
+        </li>
+    {% endif %}
+    {% if footer.facebook %}
+        <li>
+            <a href="{{ footer.facebook }}" target="_blank" rel="noopener">
+                <svg width="24" height="24">
+                    <use xlink:href="#facebook"/>
+                </svg>
+            </a>
+        </li>
+    {% endif %}
+    {% if footer.youtube %}
+        <li>
+            <a href="{{ footer.youtube }}" target="_blank" rel="noopener">
+                <svg width="24" height="24">
+                    <use xlink:href="#youtube"/>
+                </svg>
+            </a>
+        </li>
+    {% endif %}
+    {% if footer.twitter %}
+        <li>
+            <a href="{{ footer.twitter }}" target="_blank" rel="noopener">
+                <svg width="24" height="24">
+                    <use xlink:href="#twitter"/>
+                </svg>
+            </a>
+        </li>
+    {% endif %}
+    {% if footer.linkedin %}
+        <li>
+            <a href="{{ footer.linkedin }}" target="_blank" rel="noopener">
+                <svg width="24" height="24">
+                    <use xlink:href="#linkedin"/>
+                </svg>
+            </a>
+        </li>
+    {% endif %}
+</ul>
