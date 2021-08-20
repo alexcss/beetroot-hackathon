@@ -32,7 +32,7 @@ export class Main {
       const regex = new RegExp(term, "gi");
       return country.countryName.match(regex);
     });
-    if (!term || term !== ' ') return;
+    if (!term) return;
     this.setInfoData(countries[0]['countryCode']);
   }
 
