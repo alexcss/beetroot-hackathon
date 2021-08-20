@@ -14,16 +14,30 @@
         </div>
         <section class="zg-map-wrap position-relative">
             <div id="map" style="width: 100%; height: 80vh;"></div>
-            <div class="zg-country-info">
-                <div class="zg-country-info__header">
-                    <h2>USA</h2>
-                </div>
-                <!-- /.zg-country-info__header -->
-                <div class="zg-country-info__body">
-                    Body
-                </div>
-                <div class="zg-country-info__footer">
-                    footer
+            <div class="zg-country-info" id="info" >
+                <div class="zg-country-info__inner" v-if="!closed">
+                    <div class="zg-country-info__header position-relative">
+                        <p class="h3">${data.countryName}</p>
+                        <button class="close-button" aria-label="Close alert" type="button" data-close>
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- /.zg-country-info__header -->
+                    <div class="zg-country-info__body">
+                        <p>borderStatus: ${data.borderStatus}</p>
+                        <p v-if="data.maskStatus">maskStatus: ${data.maskStatus.status}</p>
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li v-for="doc in data.returnDocumentation">
+                                <a :href="doc.url" target="_blank">
+                                    ${doc.name}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="zg-country-info__footer">
+                        footer
+                    </div>
                 </div>
             </div>
         </section>

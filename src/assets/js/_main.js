@@ -14,21 +14,55 @@ export class Main {
   constructor() {
     //define variables
     this.data = {};
+    this.infoWindow;
 
     $(document).foundation();
 
     this.getData();
+    this.initInfoWindow();
   }
 
+  initInfoWindow() {
+
+    this.infoWindow = new Vue({
+      delimiters: ['${', '}'],
+      el: '#info',
+      data: {
+        closed: true,
+        data: {
+        },
+      },
+      methods: {
+
+      },
+      mounted() {
+        console.log('vuse');
+      },
+    });
+
+
+    // this.infoWindow.$data.data.countryName = 'UK';
+
+  }
+
+  setInfoData(countryCode,) {
+    console.log(countryCode);
+    this.infoWindow.$data.closed = false;
+
+    let data = this.data.find( (country) => country['countryCode'] == countryCode);
+    this.infoWindow.$data.data = data;
+  }
   initMap(data) {
     let colors = {}
+    const _self = this;
 
     data.forEach((country) => {
-      console.log(country);
+      // console.log(country);
       colors[country['countryCode']] = country['borderStatus'];
     })
 
-    console.log(colors);
+    console.log(data[0]);
+
 
     const map = new jsVectorMap({
       selector: '#map',
@@ -38,8 +72,11 @@ export class Main {
       zoomOnScroll: false,
       onRegionSelected: function (index, isSelected, selectedRegions) {
         map.clearSelectedRegions();
-        console.log(index, isSelected, selectedRegions);
+        // console.log(index, isSelected, selectedRegions);
         map.setSelected('regions', [index]);
+
+        _self.setInfoData(index);
+
       },
       onRegionTooltipShow: function (tooltip, code) {
         tooltip.selector.innerHTML = tooltip.text() + ' <b>(Hello)</b>'
