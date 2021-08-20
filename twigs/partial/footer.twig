@@ -1,8 +1,15 @@
-<footer class="zg-footer">
+<footer class="zg-footer section fp-auto-height" id="zg-footer">
     <div class="grid-container">
-        <div class="grid-x grid-margin-x">
-            <div class="cell small-12 medium-6">© {{ footer.copyright|replace({'[year]': "now"|date('Y')}) }} BeCovid. All Rights Reserved.</div>
-            <div class="cell small-12 medium-6 medium-text-right">Made by <a href="https://zgraya.digital">zgraya.digital</a></div>
+        <div class="grid-x grid-margin-x align-middle">
+            <div class="cell small-12 medium-4 large-4">
+                <p class="zg-copyright"> {{ footer.copyright|replace({'[year]': "now"|date('Y')}) }}</p>
+            </div>
+            <div class="cell small-12 medium-4 large-4">
+                <p class="zg-made-by">made by <a target="_blank" href="https://zgraya.digital">Zgraya.digital</a></p>
+            </div>
+            <div class="cell small-12 medium-4 large-4">
+                {% include 'partial/socials.twig' %}
+            </div>
         </div>
     </div>
 </footer>
