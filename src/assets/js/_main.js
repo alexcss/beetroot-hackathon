@@ -27,6 +27,15 @@ export class Main {
     this.initCursor();
   }
 
+  searchByData(term) {
+    const countries = this.data.filter((country) => {
+      const regex = new RegExp(term, "gi");
+      return country.countryName.match(regex);
+    });
+    if (!term || term !== ' ') return;
+    this.setInfoData(countries[0]['countryCode']);
+  }
+
   initCursor() {
     const cursor = new Cursor(document.querySelector('[data-cursor]'));
     [...document.querySelectorAll('a, button, label, .jvm-region')].forEach(el => {
@@ -55,7 +64,7 @@ export class Main {
 
   }
 
-  setInfoData(countryCode,) {
+  setInfoData(countryCode) {
     console.log(countryCode);
     this.infoWindow.$data.closed = false;
 
@@ -161,7 +170,10 @@ export class Main {
 
   search() {
     let searchInput = document.querySelector('[data-search-input]');
-    searchInput.addEventListener('keyup', () => {
+    searchInput.addEventListener('submit', (e) => {
+      e.preventDefault();
+      this.searchByData(e.target.search.value);
+      document.getElementById('map').scrollIntoView();
     });
   }
 }

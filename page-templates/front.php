@@ -2,14 +2,6 @@
 /*
 Template Name: Front Page
 */
-//
-//$argsCases = array(
-//	'post_type' => 'bz_case',
-//	'posts_per_page' => 2,
-//	'meta_key' => 'on_front',
-//	'meta_value' => '1'
-//);
-//$cases = Timber::get_posts( $argsCases );
 
 $post = new TimberPost();
 
@@ -19,6 +11,8 @@ if (isset($_COOKIE['zg-switch-theme-color']) && !empty($_COOKIE['zg-switch-theme
 	$context['theme_color'] = 'switch-theme';
 }
 $data = array(
+	'title' => get_the_title(),
+	'content' => get_the_content(),
 	'featured_image' => get_the_post_thumbnail_url(),
 );
 
