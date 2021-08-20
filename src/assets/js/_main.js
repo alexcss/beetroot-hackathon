@@ -62,7 +62,6 @@ export class Main {
   }
 
   setInfoData(countryCode,) {
-    console.log(countryCode);
     this.infoWindow.$data.closed = false;
 
     let data = this.data.find((country) => country['countryCode'] == countryCode);
@@ -77,7 +76,6 @@ export class Main {
       colors[country['countryCode']] = country['borderStatus'];
     })
 
-    console.log(data[0]);
 
     this.map = new jsVectorMap({
       selector: '#map',
