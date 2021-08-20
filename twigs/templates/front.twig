@@ -18,15 +18,32 @@
                 <div class="zg-country-info__inner" v-if="!closed">
                     <div class="zg-country-info__header position-relative">
                         <p class="h3">${data.countryName}</p>
-                        <button class="close-button" aria-label="Close alert" type="button" data-close>
+                        <p class="h4" :class="{'text-success' : data.borderStatus == 'OPEN', 'text-alert' : data.borderStatus == 'CLOSED', 'text-warning' : data.borderStatus == 'RESTRICTIONS'}">borderStatus: ${data.borderStatus}</p>
+                        <button class="close-button" aria-label="Close alert" type="button" data-close @click="close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <!-- /.zg-country-info__header -->
                     <div class="zg-country-info__body">
-                        <p>borderStatus: ${data.borderStatus}</p>
-                        <p v-if="data.maskStatus">maskStatus: ${data.maskStatus.status}</p>
-                        <h3>Documentation</h3>
+
+
+                        <div v-html="data.borderStatusData.exceptions">
+                        </div>
+
+                        <h4 v-if="data.arrivalQuarantineStatus.body || data.arrivalDocumentation">Arrival Quarantine</h4>
+                        <p class="text-color-primary" v-html="data.arrivalQuarantineStatus.body"></p>
+                        <ul>
+                            <li v-for="doc in data.arrivalDocumentation">
+                                <a :href="doc.url" target="_blank">
+                                    ${doc.name}
+                                </a>
+                            </li>
+                        </ul>
+
+                        <h4>Return Quarantine</h4>
+                        <div v-if="data.returnQuarantineStatus" v-html="data.returnQuarantineStatus.body">
+                        </div>
+
                         <ul>
                             <li v-for="doc in data.returnDocumentation">
                                 <a :href="doc.url" target="_blank">
@@ -34,9 +51,16 @@
                                 </a>
                             </li>
                         </ul>
+
+                        <h4>Return Test</h4>
+                        <div v-html="data.returnTestStatus.exceptions">
+                        </div>
+
                     </div>
                     <div class="zg-country-info__footer">
-                        footer
+                        Active cases: ${data.activeCases}
+                        <div v-if="data.maskStatus">maskStatus: ${data.maskStatus.status}</div>
+                        <div>currentWeekVaccinatedPercent: ${data.currentWeekVaccinatedPercent}</div>
                     </div>
                 </div>
             </div>

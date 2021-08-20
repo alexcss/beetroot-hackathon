@@ -33,15 +33,14 @@ export class Main {
         },
       },
       methods: {
-
+        close(){
+          this.closed = true;
+        }
       },
       mounted() {
         console.log('vuse');
       },
     });
-
-
-    // this.infoWindow.$data.data.countryName = 'UK';
 
   }
 
