@@ -5,23 +5,31 @@
 // If you want to pick and choose which modules to include, comment out the above and uncomment
 // the line below
 import './lib/foundation-explicit-pieces';
-// import './lib/jquery.vmap.min'
-// import './lib/maps/jquery.vmap.world'
 
 import 'jsvectormap'
 import 'jsvectormap/dist/maps/world'
-
 
 export class Main {
 
   constructor() {
     //define variables
+    this.data = {};
 
     $(document).foundation();
+
     this.getData();
-    this.initMap();
   }
-  initMap(){
+
+  initMap(data) {
+    let colors = {}
+
+    data.forEach((country) => {
+      console.log(country);
+      colors[country['countryCode']] = country['borderStatus'];
+    })
+
+    console.log(colors);
+
     const map = new jsVectorMap({
       selector: '#map',
       map: 'world',
@@ -55,32 +63,37 @@ export class Main {
               vertical: true,
             },
             scale: {
-              "Free": "#4bdc77",
-              "Closed": "#ff5566"
+              "OPEN": "#4bdc77",
+              "CLOSED": "#ff5566",
+              "RESTRICTIONS": "#ffac7d",
             },
-            values: {
-              GB: "Free",
-              MX: "Closed",
-              LY: "Free",
-            },
+            values: colors,
           },
         ]
       },
     })
   }
-  getData(){
-    let myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer JDiGZOvozuDN6G2G2k0HHYKiphyO5AQg");
+
+  getData() {
+    let headers = new Headers();
+    // headers.append("Authorization", "Bearer JDiGZOvozuDN6G2G2k0HHYKiphyO5AQg");
+    headers.append('Content-Type', 'application/json');
+    headers.append('Accept', 'application/json');
+
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('referer', 'www.kayak.com');
 
     let requestOptions = {
-      origin: 'http://localhost:1234',
       method: 'GET',
-      headers: myHeaders,
+      // headers: headers,
     };
 
-    fetch("https://www.kayak.com/charm/horizon/uiapi/seo/marketing/travelrestrictions/CountriesTravelRestrictionsAction", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
+    fetch("/wp-content/themes/zgraya/data.json", requestOptions)
+      .then(response => response.json())
+      .then(result => {
+        this.data = result;
+        this.initMap(result);
+      })
       .catch(error => console.log('error', error));
   }
 }
