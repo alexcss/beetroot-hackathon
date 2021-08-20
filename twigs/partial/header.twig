@@ -7,8 +7,9 @@
             BeCovid
         </a>
         <nav id="nav-main" class="zg-nav-main">
-{#            {% include "partial/menu.twig" with {'items': menu.desktop_nav.get_items, 'class': 'menu show-for-large'} %}#}
-{#            <button aria-label="{{ __( 'Main Menu', 'foundationpress' ) }}" class="menu-icon dark hide-for-large" type="button" data-toggle="off-canvas-menu"></button>#}
+            <div class="zg-search-wrap">
+                <input class="zg-input" type="text" name="zg-search" placeholder="Search..." data-search-input>
+            </div>
             <button class="zg-switch-theme-color" data-toggle-theme-color aria-label="Change Theme Color"></button>
         </nav><!-- #nav -->
     </div>

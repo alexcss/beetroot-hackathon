@@ -19,6 +19,7 @@ export class Main {
 
     this.getData();
     this.switchThemeColor();
+    this.search();
   }
 
   initMap(data) {
@@ -109,5 +110,11 @@ export class Main {
         document.cookie = 'zg-switch-theme-color=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       }
     })
+  }
+
+  search() {
+    let searchInput = document.querySelector('[data-search-input]');
+    searchInput.addEventListener('keyup', () => {
+    });
   }
 }

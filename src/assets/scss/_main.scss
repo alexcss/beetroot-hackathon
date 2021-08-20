@@ -15,6 +15,18 @@ button{
    }
   cursor: pointer;
   color: var(--primary-color);
+  border-radius: $global-radius;
+}
+input, .zg-input {
+  border: 1px solid $gray;
+  color: var(--body-font-color);
+  outline: none;
+  background-color: var(--body-background);
+  padding: 5px;
+  border-radius: $global-radius;
+  &::placeholder {
+    color: var(--body-font-color);
+  }
 }
 html {
   scroll-behavior: smooth;
