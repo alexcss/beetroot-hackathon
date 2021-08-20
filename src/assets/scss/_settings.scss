@@ -78,7 +78,7 @@ $foundation-palette: (
   primary: #F1897B,
   secondary: #85BBB1,
   success: #3adb76,
-  warning: #ffae00,
+  warning: #ffac7d,
   alert: #cc4b37,
 );
 $dark-nav-color: #2C3840;
@@ -157,11 +157,11 @@ $header-styles: (
     'h6': ('font-size': 16),
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
+    'h1': ('font-size': 40),
+    'h2': ('font-size': 36),
+    'h3': ('font-size': 24),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 18),
     'h6': ('font-size': 16),
   ),
 );

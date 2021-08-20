@@ -47,7 +47,11 @@ export class Main {
         closed: true,
         data: {},
       },
-      methods: {},
+      methods: {
+        close(){
+          this.closed = true;
+        }
+      },
       mounted() {
         console.log('vuse');
       },
