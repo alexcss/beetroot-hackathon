@@ -59,6 +59,10 @@ ol, ul {
 }
 .zg-main-title {
   text-align: center;
+  mix-blend-mode: overlay;
+  @include breakpoint(medium) {
+    font-size: 54px;
+  }
 }
 #map {
   height: 100vh;
