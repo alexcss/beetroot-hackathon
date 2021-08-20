@@ -25,9 +25,7 @@ body {
   color: var(--body-font-color);
   font-weight: $global-weight-light;
 }
-main {
-  margin: 150px 0;
-}
+
 .zg-title-dot {
   &:after {
     content: '.';
@@ -40,5 +38,5 @@ main {
 }
 #map {
   height: 100vh;
-  margin-top: 50vh;
+  margin-top: 20vh;
 }

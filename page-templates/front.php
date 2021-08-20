@@ -17,15 +17,9 @@ $context         = Timber::get_context();
 $context['post'] = $post;
 
 $data = array(
-//	'intro' => get_field('intro'),
-//	'contact' => get_field('contacts'),
-//	'cases' => $casesList,
-//	'latest' => $latest,
+	'featured_image' => get_the_post_thumbnail_url(),
 );
 
 $context = array_merge( $context, $data );
 
 Timber::render( 'templates/front.twig', $context );
-function get() {
-	echo 1;
-}

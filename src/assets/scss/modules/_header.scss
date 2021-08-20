@@ -6,6 +6,7 @@
   top: 32px;
   background: rgba($white, 0.2);
   backdrop-filter: blur(9px);
+  z-index: 2;
 }
 .zg-logo {
   color: var(--primary-color);
