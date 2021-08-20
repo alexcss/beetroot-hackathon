@@ -12,10 +12,10 @@
 #   FLYWHEEL_SSH_PRIVATE_KEY - Flywheel ssh private key
 
 name: "Flywheel Staging Deploy"
-#on:
-#  push:
-#    branches:
-#      - dev
+on:
+  push:
+    branches:
+      - dev
 env:
   SLACK_CHANNEL: "_web_devs_only"
   FLYWHEEL_DIR:  "/www/wp-content/themes/zgraya"

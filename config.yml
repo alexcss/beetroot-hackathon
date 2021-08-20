@@ -1,7 +1,7 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: "https://starter-twig.loc"
+  url: "https://covid-map.loc"
 
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: true
