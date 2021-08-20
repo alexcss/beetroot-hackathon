@@ -29,13 +29,10 @@ export class Main {
 
   initCursor() {
     const cursor = new Cursor(document.querySelector('[data-cursor]'));
-
-    window.addEventListener("load", () => {
-      [...document.querySelectorAll('a, button, label, .jvm-region')].forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.emit('enter'));
-        el.addEventListener('mouseleave', () => cursor.emit('leave'));
-      });
-    })
+    [...document.querySelectorAll('a, button, label, .jvm-region')].forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.emit('enter'));
+      el.addEventListener('mouseleave', () => cursor.emit('leave'));
+    });
   }
 
   initInfoWindow() {
@@ -97,8 +94,9 @@ export class Main {
       },
       onLoaded(map) {
         // This is a great opportunity and useful use-case to handle the reszing of the window.
+        _self.initCursor();
         window.addEventListener('resize', () => {
-          map.updateSize()
+          map.updateSize();
         })
       },
       // -------- Series --------
