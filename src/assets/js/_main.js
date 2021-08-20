@@ -83,6 +83,11 @@ export class Main {
     headers.append('Access-Control-Allow-Origin', '*');
     headers.append('referer', 'www.kayak.com');
 
+    let requestOptions = {
+      method: 'GET',
+      // headers: headers,
+    };
+
     fetch("/wp-content/themes/zgraya/data.json", requestOptions)
       .then(response => response.json())
       .then(result => {
