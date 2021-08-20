@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 svg{
 	display: inline-block;
 	vertical-align: middle;
@@ -12,4 +13,32 @@ button{
    svg{
       fill: currentColor;
    }
+  cursor: pointer;
+  color: var(--primary-color);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: $body-font-family;
+  background-color: var(--body-background);
+  color: var(--body-font-color);
+  font-weight: $global-weight-light;
+}
+main {
+  margin: 150px 0;
+}
+.zg-title-dot {
+  &:after {
+    content: '.';
+    font-size: 140%;
+    color: var(--primary-color);
+  }
+}
+.zg-main-title {
+  text-align: center;
+}
+#map {
+  height: 100vh;
+  margin-top: 50vh;
 }

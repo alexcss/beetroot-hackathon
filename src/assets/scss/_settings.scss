@@ -71,12 +71,12 @@
 // 1. Global
 // ---------
 
-$global-font-size: 100%;
+$global-font-size: 18px;
 $global-width: rem-calc(1200);
-$global-lineheight: 1.5;
+$global-lineheight: 1.45;
 $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
+  primary: #F1897B,
+  secondary: #85BBB1,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
@@ -85,18 +85,21 @@ $dark-nav-color: #2C3840;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
-$black: #0a0a0a;
-$white: #fefefe;
+$gray: #E4E4E4;
+$black: #161926;
+$dark-blue: #262A3F;
+$white: #FFFFFF;
 $body-background: $white;
-$body-font-color: $black;
-$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$body-font-color: $dark-blue;
+$body-font-family: "Lato", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
 $global-position: 1rem;
-$global-weight-normal: normal;
-$global-weight-bold: bold;
-$global-radius: 0;
+$global-weight-light: 300;
+$global-weight-normal: 400;
+$global-weight-bold: 700;
+$global-radius: 1px;
 $global-menu-padding: 0.7rem 1rem;
 $global-menu-nested-margin: 1rem;
 $global-text-direction: ltr;
@@ -138,7 +141,7 @@ $block-grid-max: 8;
 // ------------------
 
 $header-font-family: $body-font-family;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: $global-weight-bold;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
 $header-color: inherit;

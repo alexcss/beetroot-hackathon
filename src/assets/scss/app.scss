@@ -67,6 +67,7 @@
 */
 
 // Global
+@import "variables";
 @import "main";
 @import "global/accessibility";
 @import "global/wp-admin";
@@ -75,6 +76,7 @@
 // Modules
 @import "modules/navigation";
 @import "modules/content";
+@import "modules/header";
 @import "modules/footer";
 @import "modules/editor-style";
 

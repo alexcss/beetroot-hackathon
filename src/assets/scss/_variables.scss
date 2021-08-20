@@ -1,0 +1,15 @@
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --body-font-color: #{$body-font-color};
+  --body-background: #{$body-background};
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #{$secondary-color};
+    --secondary-color: #{$secondary-color};
+    --body-font-color: #{$white};
+    --body-background: #{$dark-blue};
+  }
+}
+
