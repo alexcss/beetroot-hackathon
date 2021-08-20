@@ -53,12 +53,9 @@ export class Main {
         }
       },
       mounted() {
-        console.log('vuse');
+
       },
     });
-
-
-    // this.infoWindow.$data.data.countryName = 'UK';
 
   }
 
@@ -75,12 +72,10 @@ export class Main {
     const _self = this;
 
     data.forEach((country) => {
-      // console.log(country);
       colors[country['countryCode']] = country['borderStatus'];
     })
 
     console.log(data[0]);
-
 
     const map = new jsVectorMap({
       selector: '#map',
@@ -90,7 +85,7 @@ export class Main {
       zoomOnScroll: false,
       onRegionSelected: function (index, isSelected, selectedRegions) {
         map.clearSelectedRegions();
-        // console.log(index, isSelected, selectedRegions);
+
         map.setSelected('regions', [index]);
 
         _self.setInfoData(index);
@@ -132,19 +127,12 @@ export class Main {
 
   getData() {
     let headers = new Headers();
-    // headers.append("Authorization", "Bearer JDiGZOvozuDN6G2G2k0HHYKiphyO5AQg");
-    headers.append('Content-Type', 'application/json');
-    headers.append('Accept', 'application/json');
-
-    headers.append('Access-Control-Allow-Origin', '*');
-    headers.append('referer', 'www.kayak.com');
 
     let requestOptions = {
-      method: 'GET',
-      // headers: headers,
+      method: 'GET'
     };
 
-    fetch("/wp-content/themes/zgraya/data.json", requestOptions)
+    fetch(`${themeUrl}/data.json`, requestOptions)
       .then(response => response.json())
       .then(result => {
         this.data = result;
