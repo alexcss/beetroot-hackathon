@@ -23,7 +23,7 @@ export class Main {
 
     this.getData();
     this.switchThemeColor();
-    this.search();
+    this.initSearch();
     this.initInfoWindow();
     this.initCursor();
   }
@@ -34,7 +34,12 @@ export class Main {
       return country.countryName.match(regex);
     });
     if (!term) return;
-    this.setInfoData(countries[0]['countryCode']);
+    const code = countries[0]['countryCode'];
+
+    this.map.clearSelectedRegions();
+    this.setInfoData(code);
+    this.map.setSelected('regions', [code]);
+
   }
 
   initCursor() {
@@ -166,11 +171,14 @@ export class Main {
     })
   }
 
-  search() {
+  initSearch() {
     let searchInput = document.querySelector('[data-search-input]');
     searchInput.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.searchByData(e.target.search.value);
+      if ( e.target.search.value.trim() == '') return;
+
+      this.searchByData(e.target.search.value.trim());
+
       document.getElementById('map').scrollIntoView();
     });
   }
