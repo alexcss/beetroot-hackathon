@@ -3,8 +3,8 @@
 {% block content %}
     <main>
         <section class="zg-hero" style="background-image: url({{ featured_image }})">
-            <h1 class="zg-title-dot zg-main-title">{{ __('TRAVEL SAFELY', 'zg') }}</h1>
-            <p>Interactive world map</p>
+            <h1 class="zg-title-dot zg-main-title">{{ title }}</h1>
+            <div class="zg-hero__content">{{ content }}</div>
         </section>
         <section class="zg-map-wrap position-relative">
             <div id="map" style="width: 100%; height: 80vh;"></div>
@@ -12,11 +12,16 @@
                 <div class="zg-country-info__inner" v-if="!closed">
                     <div class="zg-country-info__header position-relative">
                         <p class="h3">${data.countryName}</p>
-                        <p class="h4" :class="{'text-success' : data.borderStatus == 'OPEN', 'text-alert' : data.borderStatus == 'CLOSED', 'text-warning' : data.borderStatus == 'RESTRICTIONS'}">borderStatus: ${data.borderStatus}</p>
-                        <button class="close-button" aria-label="Close alert" type="button" data-close @click="close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <p class="h3" :class="{'text-success' : data.borderStatus == 'OPEN', 'text-alert' : data.borderStatus == 'CLOSED', 'text-warning' : data.borderStatus == 'RESTRICTIONS'}">
+                            <span class="zg-emoji" v-if="data.borderStatus == 'CLOSED'">&#128581;</span>
+                            <span class="zg-emoji" v-if="data.borderStatus == 'RESTRICTIONS'">&#128582;</span>
+                            <span class="zg-emoji" v-if="data.borderStatus == 'OPEN'">&#128075;</span>
+                            ${data.borderStatus}
+                        </p>
                     </div>
+                    <button class="close-button" aria-label="Close alert" type="button" data-close @click="close">
+                        <span aria-hidden="true">&#10060;</span>
+                    </button>
                     <!-- /.zg-country-info__header -->
                     <div class="zg-country-info__body">
 
@@ -24,7 +29,7 @@
                         <div v-html="data.borderStatusData.exceptions">
                         </div>
 
-                        <h4 v-if="data.arrivalQuarantineStatus.body || data.arrivalDocumentation">Arrival Quarantine</h4>
+                        <h4 v-if="data.arrivalQuarantineStatus.body || data.arrivalDocumentation"><span class="zg-emoji">&#128747;</span>Arrival Quarantine</h4>
                         <p class="text-color-primary" v-html="data.arrivalQuarantineStatus.body"></p>
                         <ul>
                             <li v-for="doc in data.arrivalDocumentation">
@@ -34,7 +39,7 @@
                             </li>
                         </ul>
 
-                        <h4>Return Quarantine</h4>
+                        <h4><span class="zg-emoji">&#128748;</span>Return Quarantine</h4>
                         <div v-if="data.returnQuarantineStatus" v-html="data.returnQuarantineStatus.body">
                         </div>
 
@@ -46,15 +51,15 @@
                             </li>
                         </ul>
 
-                        <h4>Return Test</h4>
+                        <h4><span class="zg-emoji">&#9757;</span>Return Test</h4>
                         <div v-html="data.returnTestStatus.exceptions">
                         </div>
 
                     </div>
                     <div class="zg-country-info__footer">
-                        Active cases: ${data.activeCases}
-                        <div v-if="data.maskStatus">maskStatus: ${data.maskStatus.status}</div>
-                        <div>currentWeekVaccinatedPercent: ${data.currentWeekVaccinatedPercent}</div>
+                        <div class="h4"><span class="zg-emoji">&#129319;</span>Qty. sick: ${data.activeCases}</div>
+                        <div v-if="data.maskStatus" class="h4"><span class="zg-emoji">&#128567;</span>Wear a mask: ${data.maskStatus.status}</div>
+                        <div class="h4"><span class="zg-emoji">&#128137;</span>Vaccinated: ${data.currentWeekVaccinatedPercent} %</div>
                     </div>
                 </div>
             </div>

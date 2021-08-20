@@ -38,13 +38,24 @@ body {
   color: var(--body-font-color);
   font-weight: $global-weight-light;
 }
-
+ol, ul {
+  li {
+    &::marker {
+      color: var(--primary-color);
+    }
+  }
+}
 .zg-title-dot {
   &:after {
     content: '.';
     font-size: 140%;
     color: var(--primary-color);
   }
+}
+.zg-emoji {
+  font-size: 24px;
+  margin-right: 6px;
+  line-height: 1;
 }
 .zg-main-title {
   text-align: center;
