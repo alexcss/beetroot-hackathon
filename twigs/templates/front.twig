@@ -3,8 +3,8 @@
 {% block content %}
     <main>
         <section class="zg-hero" style="background-image: url({{ featured_image }})">
-            <h1 class="zg-title-dot zg-main-title">{{ __('TRAVEL SAFELY', 'zg') }}</h1>
-            <p>Interactive world map</p>
+            <h1 class="zg-title-dot zg-main-title">{{ title }}</h1>
+            <div class="zg-hero__content">{{ content }}</div>
         </section>
         <section class="zg-map-wrap position-relative">
             <div id="map" style="width: 100%; height: 80vh;"></div>
