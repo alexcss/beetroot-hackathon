@@ -1,0 +1,15 @@
+svg{
+	display: inline-block;
+	vertical-align: middle;
+	@include zg-transition('fill, stroke');
+}
+a,
+[type="submit"],
+[type="button"],
+button{
+   @include zg-transition;
+
+   svg{
+      fill: currentColor;
+   }
+}

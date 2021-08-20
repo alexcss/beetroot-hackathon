@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main>
+        <article class="grid-container">
+            {% if post.thumbnail %}
+                <img class="zg-single-thumb" src="{{ post.thumbnail.src|resize(1024) }}" srcset="{{ post.thumbnail.src|resize(1024) }} 1x,
+                                                            {{ post.thumbnail.src|resize(2048) }} 2x" alt="{{ post.title }}">
+            {% endif %}
+            <h1 class="zg-page-title">{{ post.title }}</h1>
+            <!-- /.row -->
+            <div class="grid-x zg-single-meta">
+                <div class="cell small-16 medium-8">
+                    <p class="blog-author">
+                        <span>By</span><a href="{{post.author.path}}"> {{ post.author.name }} </a><span>&bull;</span>
+                        <time datetime="{{ post.date('Y-m-d') }}T{{ post.date('H:i:s') }}">{{ post.date }}</time>
+                    </p>
+                </div>
+                <!-- /.column small-12 -->
+                <div class="cell small-16 medium-4 text-right">
+                    <div class="zg-share">
+                        <span>{{ __('Share on') }}:</span> {{ function('do_shortcode', '[addtoany]') }}
+                    </div>
+                    <!-- /.zg-share -->
+
+                </div>
+                <!-- /.column small-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="zg-single-content">
+                {{ post.content }}
+            </div>
+            <!-- /.zg-single-content -->
+        </article>
+        {# To add comments see Docs https://timber.github.io/docs/guides/comments/  #}
+    </main>
+{% endblock %}
+

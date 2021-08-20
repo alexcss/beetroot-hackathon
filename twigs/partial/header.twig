@@ -1,0 +1,15 @@
+<header class="zg-header">
+    <div class="zg-header-bar">
+        <a class="zg-logo" href="{{ site.url|e('esc_url') }}" rel="home" title="{{ site.name }}">
+            {% if custom_logo.src %}
+                <img src="{{custom_logo.src}}" alt="{{ custom_logo.alt }}" width="{{ custom_logo.width }}" height="{{ custom_logo.height }}" />
+            {% else %}
+                {{ site.name }}
+            {% endif %}
+        </a>
+        <nav id="nav-main" class="nav-main">
+            {% include "partial/menu.twig" with {'items': menu.desktop_nav.get_items, 'class': 'menu show-for-large'} %}
+            <button aria-label="{{ __( 'Main Menu', 'foundationpress' ) }}" class="menu-icon dark hide-for-large" type="button" data-toggle="off-canvas-menu"></button>
+        </nav><!-- #nav -->
+    </div>
+</header>

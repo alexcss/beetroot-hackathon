@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<main>
+        <!-- BEGIN grid-container -->
+        <div class="grid-container">
+        	<h1>{{ post.title }}</h1>
+            {{  post.text }}
+        </div>
+        <!-- END grid-container -->
+    </main>
+{% endblock %}

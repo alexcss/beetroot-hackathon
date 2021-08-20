@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" {{ site.language_attributes }}>
+<head>
+    {% block html_head %}
+        <meta charset="{{ site.charset }}"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="https://code.jquery.com/">
+        {{ function('wp_head') }}
+        {% block head %}
+        {% endblock %}
+    {% endblock %}
+</head>
+
+<body class="{{ body_class }}" data-template="base.twig">
+<div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+        {% block offcanvas %}
+            {% include 'partial/offcanvas.twig' %}
+        {% endblock %}
+
+        <div class="off-canvas-content" data-off-canvas-content>
+            {% block header %}
+                {% include 'partial/header.twig' %}
+            {% endblock %}
+            {% block content %}
+                Sorry, no content
+            {% endblock %}
+            {% block footer %}
+                {% include 'partial/footer.twig' %}
+
+            {% endblock %}
+        </div><!-- Close off-canvas wrapper inner -->
+    </div><!-- Close off-canvas wrapper -->
+</div><!-- Close off-canvas content wrapper -->
+{{ function('wp_footer') }}
+</body>
+</html>

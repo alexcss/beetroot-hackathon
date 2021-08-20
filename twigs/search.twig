@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main>
+        <div class="grid-container">
+            <h1>{{ title }}</h1>
+            {% for post in posts %}
+                {% include ['partial/content-'~post.post_type~'.twig', 'partial/content.twig'] %}
+            {% else %}
+                No results
+            {% endfor %}
+            {{ fn('foundationpress_pagination') }}
+        </div>
+    </main>
+{% endblock %}

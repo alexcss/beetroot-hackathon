@@ -1,0 +1,12 @@
+{% if items %}
+	<ul class="{{ class }}">
+	{% for item in items %}
+		<li class="{{ item.classes | join(' ') }}">
+			<a href="{{ item.link }}" {% if item.target  %} target="{{ item.target }}" {% endif %}>
+                {{ item.title }}
+            </a>
+			{% include "partial/menu.twig" with {'items': item.children, 'class': 'menu vertical'} %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}

@@ -1,0 +1,13 @@
+// Make sure that the WP admin-bar does not overlap Foundation components
+body.admin-bar {
+
+  // Offset mobile off-canvas menu
+  &.offcanvas {
+    .off-canvas.is-open {
+      top: rem-calc(46);
+      @include breakpoint(783) {
+        top: rem-calc(32);
+      }
+    }
+  }
+}
