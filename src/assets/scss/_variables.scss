@@ -7,7 +7,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --primary-color: #{$secondary-color};
-    --secondary-color: #{$secondary-color};
+    --secondary-color: #{$primary-color};
     --body-font-color: #{$white};
     --body-background: #{$dark-blue};
     .zg-switch-theme-color {
@@ -19,7 +19,7 @@
 }
 .switch-theme {
   --primary-color: #{$secondary-color};
-  --secondary-color: #{$secondary-color};
+  --secondary-color: #{$primary-color};
   --body-font-color: #{$white};
   --body-background: #{$dark-blue};
   .zg-switch-theme-color {

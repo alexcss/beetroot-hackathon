@@ -21,7 +21,8 @@ input, .zg-input {
   border: 1px solid $gray;
   color: var(--body-font-color);
   outline: none;
-  background-color: var(--body-background);
+  //background-color: var(--body-background);
+  background-color: transparent;
   padding: 5px;
   border-radius: $global-radius;
   &::placeholder {
