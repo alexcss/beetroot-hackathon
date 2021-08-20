@@ -93,7 +93,7 @@ export class Main {
 
       },
       onRegionTooltipShow: function (tooltip, code) {
-        tooltip.selector.innerHTML = tooltip.text() + ' <b>(Hello)</b>'
+        tooltip.selector.innerHTML = '<b>' + tooltip.text() + '</b>';
       },
       onLoaded(map) {
         // This is a great opportunity and useful use-case to handle the reszing of the window.
