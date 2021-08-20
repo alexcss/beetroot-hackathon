@@ -9,6 +9,8 @@ import './lib/foundation-explicit-pieces';
 import 'jsvectormap'
 import 'jsvectormap/dist/maps/world'
 
+import Cursor from './cursor';
+
 export class Main {
 
   constructor() {
@@ -22,6 +24,18 @@ export class Main {
     this.switchThemeColor();
     this.search();
     this.initInfoWindow();
+    this.initCursor();
+  }
+
+  initCursor() {
+    const cursor = new Cursor(document.querySelector('[data-cursor]'));
+
+    window.addEventListener("load", () => {
+      [...document.querySelectorAll('a, button, label, .jvm-region')].forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.emit('enter'));
+        el.addEventListener('mouseleave', () => cursor.emit('leave'));
+      });
+    })
   }
 
   initInfoWindow() {
@@ -31,12 +45,9 @@ export class Main {
       el: '#info',
       data: {
         closed: true,
-        data: {
-        },
+        data: {},
       },
-      methods: {
-
-      },
+      methods: {},
       mounted() {
         console.log('vuse');
       },
@@ -51,9 +62,10 @@ export class Main {
     console.log(countryCode);
     this.infoWindow.$data.closed = false;
 
-    let data = this.data.find( (country) => country['countryCode'] == countryCode);
+    let data = this.data.find((country) => country['countryCode'] == countryCode);
     this.infoWindow.$data.data = data;
   }
+
   initMap(data) {
     let colors = {}
     const _self = this;
@@ -141,8 +153,8 @@ export class Main {
     let buttonSwitcher = document.querySelector('[data-toggle-theme-color]');
     buttonSwitcher.addEventListener('click', () => {
       document.body.classList.toggle('switch-theme');
-      if(document.cookie.indexOf('zg-switch-theme-color') == -1){
-        document.cookie='zg-switch-theme-color=1; path=/';
+      if (document.cookie.indexOf('zg-switch-theme-color') == -1) {
+        document.cookie = 'zg-switch-theme-color=1; path=/';
       } else {
         document.cookie = 'zg-switch-theme-color=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
       }

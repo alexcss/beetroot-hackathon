@@ -53,3 +53,26 @@ body {
   height: 100vh;
   margin-top: 20vh;
 }
+
+.cursor {
+  display: none;
+}
+@media (any-pointer: fine) {
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 9999999;
+  }
+  .cursor__inner {
+    fill: var(--primary-color);
+    stroke-width: 0;
+    transition: fill 0.4s ease-in-out;
+    .fp-viewing-buch &{
+      fill:#fff;
+    }
+  }
+}
