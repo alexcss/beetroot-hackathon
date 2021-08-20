@@ -74,8 +74,8 @@ $zoom-btns-width: 15px !default;
 $series-container-right: 15px !default;
 
 // Legends
-$legend-background-color: #FFF !default;
-$legend-radius: 0.25rem !default;
+$legend-background-color: var(--body-background) !default;
+$legend-radius: $global-radius !default;
 $legend-margin-left: .75rem !default;
 $legend-padding: 0.6rem !default;
 
